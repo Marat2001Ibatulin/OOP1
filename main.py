@@ -114,6 +114,7 @@ class Reviewer(Mentor):
 lecturer = Lecturer('Иван', 'Иванов')
 lecturer2 = Lecturer('Семен', 'Иванов')
 reviewer = Reviewer('Пётр', 'Петров')
+reviewer2 = Reviewer('Максим', 'Казаков')
 student = Student('Ольга', 'Алехина', 'Ж')
 student2 = Student('Саня', 'Петров', 'М')
 student.finished_courses += ['Введение в программирование']
@@ -142,3 +143,48 @@ print(student < student2)
 print(lecturer > lecturer2)
 print(lecturer == lecturer2)
 print(lecturer < lecturer2)
+
+
+def average_student_grade(students,course):
+    total = 0
+    total_lenght = 0
+    for student in students:
+        if course in student.grades:
+            for grade in student.grades[course]:
+                total += grade
+                total_lenght += 1
+    if total_lenght != 0:
+        return total / total_lenght
+    else:
+        return None
+
+print(average_student_grade([student,student2],'Python'))
+
+def average_student_grade(students,course):
+    total = 0
+    total_lenght = 0
+    for student in students:
+        if course in student.grades:
+            for grade in student.grades[course]:
+                total += grade
+                total_lenght += 1
+    if total_lenght != 0:
+        return total / total_lenght
+    else:
+        return None
+
+def average_lecturer_grade(lecturers,course):
+    total = 0
+    total_lenght = 0
+    for lecturer in lecturers:
+        if course in lecturer.grades:
+            for grade in lecturer.grades[course]:
+                total += grade
+                total_lenght += 1
+    if total_lenght != 0:
+        return total / total_lenght
+    else:
+        return None
+
+print(average_lecturer_grade([lecturer,lecturer2],'Python'))
+
